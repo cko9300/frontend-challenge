@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
   colors: {
     primary: "#3D4168",
     secondary: "#6BE1E6",
@@ -6,8 +6,16 @@ export const theme = {
     warning: "#FFDDD8",
     success: "#6BE67D",
     white: "#FFFFFF",
+    transparent: "transparent",
   },
-  fontSize: [12, 14, 16, 24, 32, 48, 60],
-  spacing: [4, 8, 12, 16, 32, 48, 96],
-  borderRadius: [4],
+  fontSize: ["12px", "14px", "16px", "24px", "32px", "48px", "60px"],
+  spacing: ["4px", "8px", "12px", "16px", "32px", "48px", "96px"],
+  borderRadius: ["4px"],
+  breakpoints: {
+    small: "532px",
+    medium: "768px",
+    large: "1024px",
+  },
 };
+
+export default theme;
