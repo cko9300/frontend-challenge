@@ -10,7 +10,12 @@ import theme from "../../lib/theme";
 
 const StyledForm = styled.form`
   flex: 1;
+  .field {
+    margin-bottom: ${theme.spacing[3]};
+  }
   .fieldset {
+    border: ${theme.colors.primary} 1px solid;
+    border-radius: ${theme.borderRadius[0]};
     margin-bottom: ${theme.spacing[3]};
   }
 `;
@@ -40,10 +45,11 @@ const FeedbackForm = ({ onSubmit }) => {
 
   return (
     <StyledForm
+      data-testid="feedback-form"
       aria-labelledby="feedback-form"
       onSubmit={() => onSubmit(formState)}
     >
-      <div className="fieldset">
+      <div className="field">
         <Label htmlFor="name">Name</Label>
         <TextInput
           id="name"
@@ -53,7 +59,7 @@ const FeedbackForm = ({ onSubmit }) => {
           type="text"
         />
       </div>
-      <div className="fieldset">
+      <div className="field">
         <Label htmlFor="email">Email</Label>
         <TextInput
           id="email"
@@ -63,15 +69,17 @@ const FeedbackForm = ({ onSubmit }) => {
           type="email"
         />
       </div>
-      <div className="fieldset">
-        <Label htmlFor="rating">Rating</Label>
+      <fieldset className="fieldset">
+        <Label htmlFor="rating" isLegend>
+          Rating
+        </Label>
         <Ratings
           name="rating"
           rating={formState.rating}
           onClick={handleChange}
         />
-      </div>
-      <div className="fieldset">
+      </fieldset>
+      <div className="field">
         <Label htmlFor="comment">Comment</Label>
         <TextArea
           id="comment"
@@ -81,7 +89,7 @@ const FeedbackForm = ({ onSubmit }) => {
           maxLength={150}
         />
       </div>
-      <Button type="submit">Submit comment</Button>
+      <Button type="submit">Submit feedback</Button>
     </StyledForm>
   );
 };
