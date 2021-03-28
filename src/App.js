@@ -19,12 +19,23 @@ const Layout = styled.div`
 `;
 
 function App() {
-  const [comments, setComments] = useState([]);
+  const storedComments = window.localStorage.getItem(
+    "customer-feedback-comments"
+  );
+
+  const [comments, setComments] = useState(JSON.parse(storedComments) || []);
 
   const onSubmit = (data) => {
     const timestamp = new Date().toLocaleString("en-gb");
     setComments([{ ...data, timestamp }, ...comments]);
   };
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "customer-feedback-comments",
+      JSON.stringify(comments)
+    );
+  }, [comments]);
 
   return (
     <div className="App">

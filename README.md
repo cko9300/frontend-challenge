@@ -21,6 +21,14 @@ My choice of technology for the graph is `recharts`. It has React support, good 
 
 ## Features
 
+- Form validation: Name, email, rating and comment are required for the feedback to be submitted.
+- Local storage: Submitted comments will persist locally on page reload.
+
+## Screenshots
+
+![Desktop](https://imgur.com/NiPutwn.png)
+![Mobile](https://imgur.com/jQElZo3.png)
+
 ## Usage
 
 To launch the app locally, run
