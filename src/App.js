@@ -1,29 +1,33 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 import "./App.css";
 import theme from "./lib/theme";
+import { H1 } from "./components/text";
 import Form from "./components/form";
-
-const Heading = styled.h1`
-  color: ${theme.colors.primary};
-  font-size: ${theme.fontSize[3]};
-  text-align: center;
-  @media (min-width: ${theme.breakpoints.medium}) {
-    font-size: ${theme.fontSize[6]};
-  }
-`;
+import Graph from "./components/graph";
+import Comments from "./components/comments";
 
 const Layout = styled.div`
   display: flex;
+  flex-wrap: wrap;
   padding: ${theme.spacing[4]};
 `;
 
 function App() {
+  const [comments, setComments] = useState([]);
+
+  const onSubmit = (data) => {
+    setComments([data, ...comments]);
+  };
+
   return (
     <div className="App">
-      <Heading>Customer Feedback Page</Heading>
+      <H1>Customer Feedback Page</H1>
       <Layout>
-        <Form />
+        <Form onSubmit={onSubmit} />
+        <Graph />
+        <Comments comments={comments} />
       </Layout>
     </div>
   );

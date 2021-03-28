@@ -6,6 +6,7 @@ import Label from "./components/label";
 import TextArea from "./components/text-area";
 import TextInput from "./components/text-input";
 import Ratings from "./components/ratings";
+import { Error } from "../text";
 import theme from "../../lib/theme";
 
 const StyledForm = styled.form`
@@ -27,8 +28,16 @@ const initialFormState = {
   comment: "",
 };
 
+const initialErrorState = {
+  name: "",
+  email: "",
+  rating: "",
+  comment: "",
+};
+
 const FeedbackForm = ({ onSubmit }) => {
   const [formState, setFormState] = useState(initialFormState);
+  const [errorState, setErrorState] = useState(initialErrorState);
 
   const handleChange = (e, rating) => {
     e.preventDefault();
@@ -43,11 +52,27 @@ const FeedbackForm = ({ onSubmit }) => {
     });
   };
 
+  const validateForm = ({ name, email, rating, comment }) => {
+    setErrorState({
+      name: !name ? "Please include name" : "",
+      email: !email ? "Please include email" : "",
+      rating: !rating ? "Please include rating" : "",
+      comment: !comment ? "Please include comment" : "",
+    });
+    return !name || !email || !rating || !comment;
+  };
+
   return (
     <StyledForm
       data-testid="feedback-form"
       aria-labelledby="feedback-form"
-      onSubmit={() => onSubmit(formState)}
+      onSubmit={(e) => {
+        e.preventDefault();
+        const hasError = validateForm(formState);
+        if (!hasError) {
+          onSubmit(formState);
+        }
+      }}
     >
       <div className="field">
         <Label htmlFor="name">Name</Label>
@@ -89,7 +114,12 @@ const FeedbackForm = ({ onSubmit }) => {
           maxLength={150}
         />
       </div>
-      <Button type="submit">Submit feedback</Button>
+      <div className="field">
+        <Button type="submit">Submit feedback</Button>
+      </div>
+      {Object.keys(errorState).map((error) => (
+        <Error key={error}>{errorState[error]}</Error>
+      ))}
     </StyledForm>
   );
 };

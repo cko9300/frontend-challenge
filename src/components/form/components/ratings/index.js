@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { ReactComponent as StarEmpty } from "./assets/star-empty.svg";
-import { ReactComponent as StarFull } from "./assets/star-full.svg";
+import { ReactComponent as StarEmpty } from "../../../../lib/assets/star-empty.svg";
+import { ReactComponent as StarFull } from "../../../../lib/assets/star-full.svg";
 import theme from "../../../../lib/theme";
 
 const numberOfStars = 5;

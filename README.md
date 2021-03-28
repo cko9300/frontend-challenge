@@ -29,5 +29,4 @@ The app should be available on `localhost:3000`.
 
 ## Improvements
 
-- Form validation: User can be informed if a field does not meet requirements.
--
+- Include reset.css to have more control over overall styling, however due to time constraints I felt like I benefitted from leveraging browser default styling.

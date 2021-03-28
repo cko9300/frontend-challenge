@@ -66,6 +66,18 @@ test("does not allow more than 150 characters on comment", () => {
   expect(comment).toHaveValue(`Great app!`.repeat(15));
 });
 
+test("validate form", () => {
+  const onSubmit = jest.fn();
+  render(<Form onSubmit={onSubmit} />);
+  const button = screen.getByText("Submit feedback");
+  fireEvent.submit(button);
+  expect(onSubmit).not.toBeCalled();
+  expect(screen.getByText("Please include name")).toBeInTheDocument();
+  expect(screen.getByText("Please include email")).toBeInTheDocument();
+  expect(screen.getByText("Please include rating")).toBeInTheDocument();
+  expect(screen.getByText("Please include comment")).toBeInTheDocument();
+});
+
 test("submits form", () => {
   const onSubmit = jest.fn();
   render(<Form onSubmit={onSubmit} />);
