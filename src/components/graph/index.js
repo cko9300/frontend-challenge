@@ -25,7 +25,7 @@ const Graph = ({ comments }) => {
 
   return (
     <GraphContainer data-testid="graph-container">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={350}>
         <BarChart
           data={ratingsCount}
           margin={{ top: 16, right: 16, left: 0, bottom: 0 }}

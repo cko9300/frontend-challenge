@@ -3,7 +3,7 @@ import theme from "../../lib/theme";
 
 const H1 = styled.h1`
   color: ${theme.colors.primary};
-  font-size: ${theme.fontSize[3]};
+  font-size: ${theme.fontSize[4]};
   text-align: center;
   @media (min-width: ${theme.breakpoints.medium}) {
     font-size: ${theme.fontSize[6]};
