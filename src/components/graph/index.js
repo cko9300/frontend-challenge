@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
+import PropTypes from "prop-types";
 
 import theme from "../../lib/theme";
 
@@ -12,7 +13,7 @@ const GraphContainer = styled.div`
   }
 `;
 
-const Graph = ({ comments }) => {
+const Graph = ({ comments, width }) => {
   const ratingsCount = [
     { rating: 1, count: 0 },
     { rating: 2, count: 0 },
@@ -25,7 +26,7 @@ const Graph = ({ comments }) => {
 
   return (
     <GraphContainer data-testid="graph-container">
-      <ResponsiveContainer width="100%" height={350}>
+      <ResponsiveContainer width={width || "100%"} height={350}>
         <BarChart
           data={ratingsCount}
           margin={{ top: 16, right: 16, left: 0, bottom: 0 }}
@@ -72,6 +73,24 @@ const Graph = ({ comments }) => {
       </ResponsiveContainer>
     </GraphContainer>
   );
+};
+
+Graph.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+      rating: PropTypes.number,
+      comment: PropTypes.string,
+      timestamp: PropTypes.string,
+    })
+  ),
+  width: PropTypes.number, //Only for testing purpose
+};
+
+Graph.defaultProps = {
+  comments: [],
+  width: null,
 };
 
 export default Graph;

@@ -56,6 +56,7 @@ Comments.propTypes = {
       email: PropTypes.string,
       rating: PropTypes.number,
       comment: PropTypes.string,
+      timestamp: PropTypes.string,
     })
   ),
 };
