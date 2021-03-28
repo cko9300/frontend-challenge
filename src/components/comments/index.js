@@ -29,11 +29,11 @@ const StyledComment = styled.li`
 
 const Comments = ({ comments }) => {
   return (
-    <Container>
+    <Container data-testid="comments-container">
       <H2>Latest Comments</H2>
       <CommentsList>
         {comments.length > 0 &&
-          comments.map(({ name, email, rating, comment }, index) => (
+          comments.map(({ name, email, rating, comment, timestamp }, index) => (
             <StyledComment key={`${email}-${index}`}>
               {[...Array(rating).keys()].map((_, index) => (
                 <StarFull key={index} title="star-full" />

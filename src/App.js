@@ -18,7 +18,8 @@ function App() {
   const [comments, setComments] = useState([]);
 
   const onSubmit = (data) => {
-    setComments([data, ...comments]);
+    const timestamp = new Date().toISOString();
+    setComments([{ ...data, timestamp }, ...comments]);
   };
 
   return (

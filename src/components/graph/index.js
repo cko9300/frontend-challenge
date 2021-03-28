@@ -6,6 +6,8 @@ const GraphContainer = styled.div`
   flex: 1;
 `;
 
-const Graph = () => <GraphContainer>graph</GraphContainer>;
+const Graph = () => (
+  <GraphContainer data-testid="graph-container">graph</GraphContainer>
+);
 
 export default Graph;
