@@ -11,6 +11,7 @@ import theme from "../../lib/theme";
 
 const StyledForm = styled.form`
   flex: 1;
+  margin-bottom: ${theme.spacing[3]};
   .field {
     margin-bottom: ${theme.spacing[3]};
   }
@@ -18,6 +19,7 @@ const StyledForm = styled.form`
     border: ${theme.colors.primary} 1px solid;
     border-radius: ${theme.borderRadius[0]};
     margin-bottom: ${theme.spacing[3]};
+    box-shadow: 1px 1px;
   }
 `;
 

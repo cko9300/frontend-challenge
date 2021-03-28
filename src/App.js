@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import "./App.css";
@@ -11,14 +11,18 @@ import Comments from "./components/comments";
 const Layout = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   padding: ${theme.spacing[4]};
+  @media (min-width: ${theme.breakpoints.medium}) {
+    flex-direction: row;
+  }
 `;
 
 function App() {
   const [comments, setComments] = useState([]);
 
   const onSubmit = (data) => {
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toLocaleString("en-gb");
     setComments([{ ...data, timestamp }, ...comments]);
   };
 
@@ -27,7 +31,7 @@ function App() {
       <H1>Customer Feedback Page</H1>
       <Layout>
         <Form onSubmit={onSubmit} />
-        <Graph />
+        <Graph comments={comments} />
         <Comments comments={comments} />
       </Layout>
     </div>

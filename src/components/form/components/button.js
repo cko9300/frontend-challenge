@@ -12,6 +12,11 @@ const StyledButton = styled.button`
   border: 1px;
   padding: ${theme.spacing[2]};
   cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: ${theme.colors.secondary};
+    color: ${theme.colors.primary};
+  }
 `;
 
 const Button = ({ onClick, type, children }) => (

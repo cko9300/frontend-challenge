@@ -8,6 +8,7 @@ const StyledTextArea = styled.textarea`
   border-color: ${theme.colors.primary};
   border-width: 1px;
   border-radius: ${theme.borderRadius[0]};
+  box-shadow: 1px 1px;
   padding: ${theme.spacing[1]};
   color: ${theme.colors.primary};
   font-size: ${theme.fontSize[1]};

@@ -17,7 +17,7 @@ const CommentsList = styled.ul`
   padding: 0;
 `;
 
-const StyledComment = styled.li`
+const Comment = styled.li`
   list-style: none;
   padding: ${theme.spacing[2]} 0;
   border-bottom: 1px ${theme.colors.primary} solid;
@@ -34,13 +34,14 @@ const Comments = ({ comments }) => {
       <CommentsList>
         {comments.length > 0 &&
           comments.map(({ name, email, rating, comment, timestamp }, index) => (
-            <StyledComment key={`${email}-${index}`}>
+            <Comment key={`${email}-${index}`}>
               {[...Array(rating).keys()].map((_, index) => (
                 <StarFull key={index} title="star-full" />
               ))}
               <H3>{name}</H3>
               <P>{comment}</P>
-            </StyledComment>
+              <P>Commented at: {timestamp}</P>
+            </Comment>
           ))}
         {comments.length === 0 && <P>No Comments</P>}
       </CommentsList>

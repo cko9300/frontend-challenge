@@ -7,6 +7,7 @@ const StyledTextInput = styled.input`
   width: 100%;
   border-color: ${theme.colors.primary};
   border-width: 1px;
+  box-shadow: 1px 1px;
   border-radius: ${theme.borderRadius[0]};
   padding: ${theme.spacing[1]};
   color: ${theme.colors.primary};

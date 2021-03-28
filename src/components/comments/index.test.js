@@ -7,12 +7,14 @@ const comments = [
     email: "peter@gmail.com",
     rating: 3,
     comment: "Ok",
+    timestamp: "28/03/2021, 19:37:48",
   },
   {
     name: "John",
     email: "john@gmail.com",
     rating: 5,
     comment: "Great app!",
+    timestamp: "27/03/2021, 19:37:48",
   },
 ];
 
@@ -36,8 +38,14 @@ test("renders ratings, name and comment for each comment", () => {
   expect(firstComment.getByText(comments[0].name)).toBeInTheDocument();
   expect(firstComment.getByText(comments[0].comment)).toBeInTheDocument();
   expect(firstComment.getAllByTitle("star-full")).toHaveLength(3);
+  expect(
+    firstComment.getByText(`Commented at: ${comments[0].timestamp}`)
+  ).toBeInTheDocument();
   const secondComment = within(allComments[1]);
   expect(secondComment.getByText(comments[1].name)).toBeInTheDocument();
   expect(secondComment.getByText(comments[1].comment)).toBeInTheDocument();
   expect(secondComment.getAllByTitle("star-full")).toHaveLength(5);
+  expect(
+    secondComment.getByText(`Commented at: ${comments[1].timestamp}`)
+  ).toBeInTheDocument();
 });

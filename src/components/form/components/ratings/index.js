@@ -8,7 +8,7 @@ import theme from "../../../../lib/theme";
 
 const numberOfStars = 5;
 
-const StyledStar = styled.button`
+const Star = styled.button`
   border: none;
   background-color: ${theme.colors.transparent};
   display: inline-block;
@@ -44,7 +44,7 @@ const Ratings = ({ onClick, name, rating }) => {
             <HiddenLabel id={`${starNumber}-label`}>
               {starNumber} out of 5
             </HiddenLabel>
-            <StyledStar
+            <Star
               id={`ratings-${starNumber}`}
               name={name}
               value={starNumber}
@@ -60,7 +60,7 @@ const Ratings = ({ onClick, name, rating }) => {
               ) : (
                 <StarEmpty title="star-empty" />
               )}
-            </StyledStar>
+            </Star>
           </React.Fragment>
         );
       })}
