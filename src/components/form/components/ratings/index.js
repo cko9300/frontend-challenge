@@ -23,8 +23,8 @@ const HiddenLabel = styled.label`
 const Ratings = ({ onClick, name, rating }) => {
   const [currentRating, setCurrentRating] = useState(rating);
 
-  const onMouseEnter = (e) => {
-    setCurrentRating(parseInt(e.target.value, 10));
+  const onMouseEnter = (starNumber) => {
+    setCurrentRating(starNumber);
   };
 
   const onMouseLeave = () => {
@@ -48,7 +48,7 @@ const Ratings = ({ onClick, name, rating }) => {
               id={`ratings-${starNumber}`}
               name={name}
               value={starNumber}
-              onMouseEnter={(e) => onMouseEnter(e)}
+              onMouseEnter={() => onMouseEnter(starNumber)}
               onMouseLeave={onMouseLeave}
               onClick={(e) => onClick(e, starNumber)}
               role="checkbox"

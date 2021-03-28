@@ -9,7 +9,7 @@ import Ratings from "./components/ratings";
 import theme from "../../lib/theme";
 
 const StyledForm = styled.form`
-  width: 100%;
+  flex: 1;
   .fieldset {
     margin-bottom: ${theme.spacing[3]};
   }
