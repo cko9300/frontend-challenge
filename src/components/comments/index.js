@@ -41,7 +41,7 @@ const Comments = ({ comments }) => {
                 <StarFull key={index} title="star-full" />
               ))}
               <H3>{name}</H3>
-              <P>{comment}</P>
+              <P data-cy="comment">{comment}</P>
               <P>Commented at: {timestamp}</P>
             </Comment>
           ))

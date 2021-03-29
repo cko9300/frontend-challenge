@@ -10,7 +10,13 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add("fill", ({ name, email, rating, comment }) => {
+  cy.visit("http://localhost:3000");
+  cy.get('[name="name"]').type(name).should("have.value", name);
+  cy.get('[name="email"]').type(email).should("have.value", email);
+  cy.get('[name="comment"]').type(comment).should("have.value", comment);
+  cy.get(`[id="ratings-${rating}"]`).click();
+});
 //
 //
 // -- This is a child command --

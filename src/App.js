@@ -19,11 +19,12 @@ const Layout = styled.div`
 `;
 
 function App() {
-  const storedComments = window.localStorage.getItem(
-    "customer-feedback-comments"
-  );
-
-  const [comments, setComments] = useState(JSON.parse(storedComments) || []);
+  const [comments, setComments] = useState(() => {
+    const storedComments = window.localStorage.getItem(
+      "customer-feedback-comments"
+    );
+    return JSON.parse(storedComments) || [];
+  });
 
   useEffect(() => {
     window.localStorage.setItem(

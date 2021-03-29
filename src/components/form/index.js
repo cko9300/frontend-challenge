@@ -68,7 +68,7 @@ const FeedbackForm = ({ onSubmit }) => {
   return (
     <StyledForm
       data-testid="feedback-form"
-      aria-labelledby="feedback-form"
+      aria-label="feedback-form"
       onSubmit={(e) => {
         e.preventDefault();
         const hasError = validateForm(formState);
