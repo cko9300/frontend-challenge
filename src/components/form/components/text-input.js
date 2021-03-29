@@ -14,13 +14,14 @@ const StyledTextInput = styled.input`
   font-size: ${theme.fontSize[1]};
 `;
 
-const TextInput = ({ name, id, onChange, value, type }) => (
+const TextInput = ({ name, id, onChange, value, type, isRequired }) => (
   <StyledTextInput
     name={name}
     id={id}
     onChange={onChange}
     value={value}
     type={type}
+    required={isRequired}
   />
 );
 
@@ -30,10 +31,12 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   type: PropTypes.string,
+  isRequired: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
   type: "text",
+  isRequired: false,
 };
 
 export default TextInput;

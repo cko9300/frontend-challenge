@@ -25,17 +25,17 @@ function App() {
 
   const [comments, setComments] = useState(JSON.parse(storedComments) || []);
 
-  const onSubmit = (data) => {
-    const timestamp = new Date().toLocaleString("en-gb");
-    setComments([{ ...data, timestamp }, ...comments]);
-  };
-
   useEffect(() => {
     window.localStorage.setItem(
       "customer-feedback-comments",
       JSON.stringify(comments)
     );
   }, [comments]);
+
+  const onSubmit = (data) => {
+    const timestamp = new Date().toLocaleString("en-gb");
+    setComments([{ ...data, timestamp }, ...comments]);
+  };
 
   return (
     <div className="App">

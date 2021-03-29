@@ -12,6 +12,7 @@ const StyledButton = styled.button`
   border: 1px;
   padding: ${theme.spacing[2]};
   cursor: pointer;
+  box-shadow: 1px 1px ${theme.colors.primaryAlpha50};
   &:hover,
   &:focus {
     background-color: ${theme.colors.secondary};

@@ -3,20 +3,24 @@ import userEvent from "@testing-library/user-event";
 
 import Ratings from ".";
 
+const defaultProps = {
+  onClick: () => {},
+};
+
 test("renders 5 checkboxes", () => {
-  render(<Ratings />);
+  render(<Ratings {...defaultProps} />);
   const star = screen.getAllByRole("checkbox");
   expect(star).toHaveLength(5);
 });
 
 test("renders 5 empty stars by default", () => {
-  render(<Ratings />);
+  render(<Ratings {...defaultProps} />);
   const starEmpty = screen.getAllByTitle("star-empty");
   expect(starEmpty).toHaveLength(5);
 });
 
 test("render full stars up to currently hovered if no values have been selected", () => {
-  render(<Ratings />);
+  render(<Ratings {...defaultProps} />);
   const star = screen.getAllByRole("checkbox");
   userEvent.hover(star[2]);
   const starEmpty = screen.getAllByTitle("star-empty");
@@ -26,7 +30,7 @@ test("render full stars up to currently hovered if no values have been selected"
 });
 
 test("render empty stars when unhovered and no values have been selected", () => {
-  render(<Ratings />);
+  render(<Ratings {...defaultProps} />);
   const star = screen.getAllByRole("checkbox");
   userEvent.hover(star[2]);
   userEvent.unhover(star[2]);
@@ -35,7 +39,7 @@ test("render empty stars when unhovered and no values have been selected", () =>
 });
 
 test("render full stars to rating", () => {
-  render(<Ratings rating={4} />);
+  render(<Ratings {...defaultProps} rating={4} />);
   const starEmpty = screen.getAllByTitle("star-empty");
   const starFull = screen.getAllByTitle("star-full");
   expect(starEmpty).toHaveLength(1);

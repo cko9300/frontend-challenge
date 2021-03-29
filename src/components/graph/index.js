@@ -13,14 +13,13 @@ const GraphContainer = styled.div`
   }
 `;
 
+const maxRating = 5;
+
 const Graph = ({ comments, width }) => {
-  const ratingsCount = [
-    { rating: 1, count: 0 },
-    { rating: 2, count: 0 },
-    { rating: 3, count: 0 },
-    { rating: 4, count: 0 },
-    { rating: 5, count: 0 },
-  ];
+  const ratingsCount = new Array(maxRating).fill(0).map((_, index) => ({
+    rating: index + 1,
+    count: 0,
+  }));
 
   comments.map(({ rating }) => (ratingsCount[rating - 1].count += 1));
 

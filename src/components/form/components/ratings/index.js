@@ -6,7 +6,7 @@ import { ReactComponent as StarEmpty } from "../../../../lib/assets/star-empty.s
 import { ReactComponent as StarFull } from "../../../../lib/assets/star-full.svg";
 import theme from "../../../../lib/theme";
 
-const numberOfStars = 5;
+const maxRating = 5;
 
 const Star = styled.button`
   border: none;
@@ -37,7 +37,7 @@ const Ratings = ({ onClick, name, rating }) => {
 
   return (
     <div>
-      {[...Array(numberOfStars).keys()].map((_, index) => {
+      {[...Array(maxRating).keys()].map((_, index) => {
         const starNumber = index + 1;
         return (
           <React.Fragment key={starNumber}>
@@ -69,8 +69,12 @@ const Ratings = ({ onClick, name, rating }) => {
 };
 
 Ratings.propTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   rating: PropTypes.number,
+};
+
+Ratings.defaultProps = {
+  rating: null,
 };
 
 export default Ratings;

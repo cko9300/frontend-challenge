@@ -12,15 +12,17 @@ const StyledTextArea = styled.textarea`
   padding: ${theme.spacing[1]};
   color: ${theme.colors.primary};
   font-size: ${theme.fontSize[1]};
+  resize: none;
 `;
 
-const TextArea = ({ name, id, onChange, value, maxLength }) => (
+const TextArea = ({ name, id, onChange, value, maxLength, isRequired }) => (
   <StyledTextArea
     name={name}
     id={id}
     onChange={onChange}
     value={value}
     maxLength={maxLength}
+    required={isRequired}
   />
 );
 
@@ -30,8 +32,11 @@ TextArea.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   maxLength: PropTypes.number,
+  isRequired: PropTypes.bool,
 };
 
-TextArea.defaultProps = {};
+TextArea.defaultProps = {
+  isRequired: false,
+};
 
 export default TextArea;

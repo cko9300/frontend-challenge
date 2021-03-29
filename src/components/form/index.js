@@ -20,6 +20,7 @@ const StyledForm = styled.form`
     border-radius: ${theme.borderRadius[0]};
     margin-bottom: ${theme.spacing[3]};
     box-shadow: 1px 1px;
+    background-color: ${theme.colors.white};
   }
 `;
 

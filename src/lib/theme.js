@@ -1,8 +1,8 @@
 const theme = {
   colors: {
     primary: "#3D4168",
+    primaryAlpha50: "rgba(61,64,104, 0.5)",
     secondary: "#6BE1E6",
-    tertiary: "#FCFFD8",
     warning: "#ff4c33",
     success: "#6BE67D",
     white: "#FFFFFF",

@@ -15,15 +15,17 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "browserslist": {
@@ -39,6 +41,9 @@
     ]
   },
   "devDependencies": {
+    "@cypress/instrument-cra": "1.4.0",
+    "cypress": "6.8.0",
+    "eslint-plugin-cypress": "2.11.2",
     "prettier": "2.2.1"
   }
 }
