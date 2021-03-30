@@ -29,6 +29,11 @@ const Comment = styled.li`
   }
 `;
 
+const renderStars = (rating) =>
+  [...Array(rating).keys()].map((_, index) => (
+    <StarFull key={index} title="star-full" />
+  ));
+
 const Comments = ({ comments }) => {
   return (
     <Container data-testid="comments-container">
@@ -37,9 +42,7 @@ const Comments = ({ comments }) => {
         {comments.length > 0 ? (
           comments.map(({ name, email, rating, comment, timestamp }, index) => (
             <Comment key={`${email}-${index}`}>
-              {[...Array(rating).keys()].map((_, index) => (
-                <StarFull key={index} title="star-full" />
-              ))}
+              {renderStars(rating)}
               <H3>{name}</H3>
               <P data-cy="comment">{comment}</P>
               <P>Commented at: {timestamp}</P>

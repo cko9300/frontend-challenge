@@ -56,13 +56,15 @@ const FeedbackForm = ({ onSubmit }) => {
   };
 
   const validateForm = ({ name, email, rating, comment }) => {
+    const invalidName = !name || !name.match(/^$|.*\S+.*/gm);
+    const invalidComment = !comment || !comment.match(/^$|.*\S+.*/gm);
     setErrorState({
-      name: !name ? "Please include name" : "",
+      name: invalidName ? "Please include name" : "",
       email: !email ? "Please include email" : "",
       rating: !rating ? "Please include rating" : "",
-      comment: !comment ? "Please include comment" : "",
+      comment: invalidComment ? "Please include comment" : "",
     });
-    return !name || !email || !rating || !comment;
+    return invalidName || !email || !rating || invalidComment;
   };
 
   return (
