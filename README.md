@@ -41,6 +41,14 @@ To export metrics, pass a function to reportWebVitals in index.js, eg.
 reportWebVitals(console.log);
 ```
 
+Docker support, if you have Docker 3.7 or above, you can run:
+
+```
+yarn docker
+```
+
+The app will be available at `localhost:3001`.
+
 ## Technology
 
 The requirement of the challenge is to create the app with React. I've used Create React App to create a skeleton for a basic react app. Most components are created as functional components with hooks.
